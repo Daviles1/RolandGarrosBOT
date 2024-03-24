@@ -6,10 +6,6 @@
   "scripts": {
     "test": "test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Daviles1/RolandGarrosBOT.git"
-  },
   "author": "David Miara",
   "license": "ISC",
   "bugs": {
