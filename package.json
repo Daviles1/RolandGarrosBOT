@@ -1,0 +1,26 @@
+{
+  "name": "atc---rg",
+  "version": "1.0.0",
+  "description": "BOT pour ajouter des billets dans le panier depuis un message discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daviles1/RolandGarrosBOT.git"
+  },
+  "author": "David Miara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Daviles1/RolandGarrosBOT/issues"
+  },
+  "homepage": "https://github.com/Daviles1/RolandGarrosBOT#readme",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "date-fns": "^3.6.0",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.1"
+  }
+}
