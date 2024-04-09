@@ -1,0 +1,155 @@
+{
+  "rounds": [
+    {
+      "name": "Opening Week",
+      "days": [
+        {
+          "date": "2024-05-20",
+          "shortDescription": "LUN 20 MAI",
+          "available": false
+        },
+        {
+          "date": "2024-05-21",
+          "shortDescription": "MAR 21 MAI",
+          "available": true
+        },
+        {
+          "date": "2024-05-22",
+          "shortDescription": "MER 22 MAI",
+          "available": false
+        },
+        {
+          "date": "2024-05-23",
+          "shortDescription": "JEU 23 MAI",
+          "available": true
+        },
+        {
+          "date": "2024-05-24",
+          "shortDescription": "VEN 24 MAI",
+          "available": false
+        }
+      ]
+    },
+    {
+      "name": "Journée Y. Noah",
+      "days": [
+        {
+          "date": "2024-05-25",
+          "shortDescription": "SAM 25 MAI",
+          "available": false
+        }
+      ]
+    },
+    {
+      "name": "1er Tour",
+      "days": [
+        {
+          "date": "2024-05-26",
+          "shortDescription": "DIM 26 MAI",
+          "available": false
+        },
+        {
+          "date": "2024-05-27",
+          "shortDescription": "LUN 27 MAI",
+          "available": false
+        },
+        {
+          "date": "2024-05-28",
+          "shortDescription": "MAR 28 MAI",
+          "available": false
+        }
+      ]
+    },
+    {
+      "name": "2e Tour",
+      "days": [
+        {
+          "date": "2024-05-29",
+          "shortDescription": "MER 29 MAI",
+          "available": false
+        },
+        {
+          "date": "2024-05-30",
+          "shortDescription": "JEU 30 MAI",
+          "available": false
+        }
+      ]
+    },
+    {
+      "name": "3e Tour",
+      "days": [
+        {
+          "date": "2024-05-31",
+          "shortDescription": "VEN 31 MAI",
+          "available": false
+        },
+        {
+          "date": "2024-06-01",
+          "shortDescription": "SAM 1 JUIN",
+          "available": false
+        }
+      ]
+    },
+    {
+      "name": "4e Tour",
+      "days": [
+        {
+          "date": "2024-06-02",
+          "shortDescription": "DIM 2 JUIN",
+          "available": false
+        },
+        {
+          "date": "2024-06-03",
+          "shortDescription": "LUN 3 JUIN",
+          "available": false
+        }
+      ]
+    },
+    {
+      "name": "1/4 Finales",
+      "days": [
+        {
+          "date": "2024-06-04",
+          "shortDescription": "MAR 4 JUIN",
+          "available": false
+        },
+        {
+          "date": "2024-06-05",
+          "shortDescription": "MER 5 JUIN",
+          "available": false
+        }
+      ]
+    },
+    {
+      "name": "1/2 Finales",
+      "days": [
+        {
+          "date": "2024-06-06",
+          "shortDescription": "JEU 6 JUIN",
+          "available": true
+        },
+        {
+          "date": "2024-06-07",
+          "shortDescription": "VEN 7 JUIN",
+          "available": false
+        }
+      ]
+    },
+    {
+      "name": "Finales",
+      "days": [
+        {
+          "date": "2024-06-08",
+          "shortDescription": "SAM 8 JUIN",
+          "available": false
+        },
+        {
+          "date": "2024-06-09",
+          "shortDescription": "DIM 9 JUIN",
+          "available": false
+        }
+      ]
+    }
+  ],
+  "isButtonUMRActivated": true
+}

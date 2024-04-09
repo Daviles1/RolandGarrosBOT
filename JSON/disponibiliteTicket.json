@@ -1,0 +1,130 @@
+{
+  "2024-06-06": {
+    "1/2 Finales": [
+      {
+        "id": 13,
+        "price": 25,
+        "priceId": 80769,
+        "color": "#00503c",
+        "code": "ANN",
+        "canSelectZone": false,
+        "longName": "Plein tarif",
+        "hasStock": true,
+        "isPmr": false,
+        "isAnnexeUp": false,
+        "shortName": "ANN",
+        "isVR": false
+      },
+      {
+        "id": 74,
+        "price": 12,
+        "priceId": 80776,
+        "color": "#76a89a",
+        "code": "ANN 1/2",
+        "canSelectZone": false,
+        "longName": "Demi-tarif (-25 ans)",
+        "hasStock": true,
+        "isPmr": false,
+        "isAnnexeUp": false,
+        "shortName": "-25 ans",
+        "isVR": false
+      }
+    ]
+  },
+  "2024-05-21": {
+    "Opening Week": [
+      {
+        "id": 13,
+        "price": 25,
+        "priceId": 80749,
+        "color": "#00503c",
+        "code": "ANN",
+        "canSelectZone": false,
+        "longName": "Plein tarif",
+        "hasStock": true,
+        "isPmr": false,
+        "isAnnexeUp": false,
+        "shortName": "ANN",
+        "isVR": false
+      },
+      {
+        "id": 74,
+        "price": 12,
+        "priceId": 80750,
+        "color": "#76a89a",
+        "code": "ANN 1/2",
+        "canSelectZone": false,
+        "longName": "Demi-tarif (-25 ans)",
+        "hasStock": true,
+        "isPmr": false,
+        "isAnnexeUp": false,
+        "shortName": "-25 ans",
+        "isVR": false
+      }
+    ]
+  },
+  "2024-05-23": {
+    "Opening Week": [
+      {
+        "id": 13,
+        "price": 25,
+        "priceId": 80753,
+        "color": "#00503c",
+        "code": "ANN",
+        "canSelectZone": false,
+        "longName": "Plein tarif",
+        "hasStock": true,
+        "isPmr": false,
+        "isAnnexeUp": false,
+        "shortName": "ANN",
+        "isVR": false
+      },
+      {
+        "id": 74,
+        "price": 12,
+        "priceId": 80754,
+        "color": "#76a89a",
+        "code": "ANN 1/2",
+        "canSelectZone": false,
+        "longName": "Demi-tarif (-25 ans)",
+        "hasStock": true,
+        "isPmr": false,
+        "isAnnexeUp": false,
+        "shortName": "-25 ans",
+        "isVR": false
+      }
+    ]
+  },
+  "2024-06-04": {
+    "1/4 Finales": [
+      {
+        "id": 13,
+        "price": 25,
+        "priceId": 80767,
+        "color": "#00503c",
+        "code": "ANN",
+        "canSelectZone": false,
+        "longName": "Plein tarif",
+        "hasStock": false,
+        "isPmr": false,
+        "isAnnexeUp": false,
+        "shortName": "ANN",
+        "isVR": false
+      },
+      {
+        "id": 74,
+        "price": 12,
+        "priceId": 80774,
+        "color": "#76a89a",
+        "code": "ANN 1/2",
+        "canSelectZone": false,
+        "longName": "Demi-tarif (-25 ans)",
+        "hasStock": false,
+        "isPmr": false,
+        "isAnnexeUp": false,
+        "shortName": "-25 ans",
+        "isVR": false
+      }
+    ]
+  }
+}
