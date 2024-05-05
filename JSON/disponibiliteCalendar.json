@@ -21,7 +21,7 @@
         {
           "date": "2024-05-23",
           "shortDescription": "JEU 23 MAI",
-          "available": true
+          "available": false
         },
         {
           "date": "2024-05-24",
@@ -46,7 +46,7 @@
         {
           "date": "2024-05-26",
           "shortDescription": "DIM 26 MAI",
-          "available": false
+          "available": true
         },
         {
           "date": "2024-05-27",
@@ -66,12 +66,12 @@
         {
           "date": "2024-05-29",
           "shortDescription": "MER 29 MAI",
-          "available": false
+          "available": true
         },
         {
           "date": "2024-05-30",
           "shortDescription": "JEU 30 MAI",
-          "available": false
+          "available": true
         }
       ]
     },
@@ -81,12 +81,12 @@
         {
           "date": "2024-05-31",
           "shortDescription": "VEN 31 MAI",
-          "available": false
+          "available": true
         },
         {
           "date": "2024-06-01",
           "shortDescription": "SAM 1 JUIN",
-          "available": false
+          "available": true
         }
       ]
     },
@@ -101,7 +101,7 @@
         {
           "date": "2024-06-03",
           "shortDescription": "LUN 3 JUIN",
-          "available": false
+          "available": true
         }
       ]
     },
@@ -131,7 +131,7 @@
         {
           "date": "2024-06-07",
           "shortDescription": "VEN 7 JUIN",
-          "available": false
+          "available": true
         }
       ]
     },

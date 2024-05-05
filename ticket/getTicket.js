@@ -1,7 +1,7 @@
 const axios = require('axios');
 const fs = require('fs').promises;
 
-require('dotenv').config()
+require('dotenv').config();
 
 async function getTicket(offerId, date, sessionId, round) {
     const headers = {
@@ -38,6 +38,7 @@ async function getTicket(offerId, date, sessionId, round) {
         currentData[date][round] = newData;
         await fs.writeFile('JSON/disponibiliteTicket.json', JSON.stringify(currentData, null, 2), 'utf8');
         console.log(`Fichier disponibiliteTicket.json complété avec succès pour Date: ${date},Round: ${round}`);
+        await new Promise(resolve => setTimeout(resolve, 500));
     }
     catch (error) {
         // Gestion des erreurs

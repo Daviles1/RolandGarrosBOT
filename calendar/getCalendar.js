@@ -31,6 +31,7 @@ async function getCalendar() {
             // Écrit la chaîne JSON dans un fichier de manière asynchrone
             await fs.writeFile('JSON/disponibiliteCalendar.json', data);
             console.log('Fichier disponibiliteCalendar.json écrit avec succès \n');
+            await new Promise(resolve => setTimeout(resolve, 500));
         } catch (error) {
             // Gestion des erreurs
             console.error('Erreur lors de la requête ou de l\'écriture du fichier:', error);

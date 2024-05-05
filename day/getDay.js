@@ -37,6 +37,7 @@ async function getDay(date) {
             currentData[date] = newData;
             await fs.writeFile('JSON/disponibiliteDay.json', JSON.stringify(currentData, null, 2), 'utf8');
             console.log(`Fichier disponibiliteDay.json complété avec succès pour Date: ${date} \n`);
+            await new Promise(resolve => setTimeout(resolve, 500));
         } catch (error) {
             // Gestion des erreurs
             console.error('Erreur lors de la requête ou de l\'écriture du fichier:', error);

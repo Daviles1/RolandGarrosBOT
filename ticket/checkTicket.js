@@ -96,7 +96,9 @@ async function checkTicket(changesDayFromFalseToTrue, changesDayFromTrueToTrue) 
         }
     }
 
-    console.log("\nChangements finaux: ", finalChanges);
+    let maintenant = new Date();
+
+    console.log(`\nChangements finaux à: ${maintenant.getHours()}:${maintenant.getMinutes()}:${maintenant.getSeconds()}`, finalChanges);
 
     return finalChanges;
 }

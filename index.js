@@ -1,4 +1,5 @@
-const { Client, Intents, MessageEmbed } = require('discord.js')
+const { Client, Intents, MessageEmbed, MessageActionRow, MessageButton } = require('discord.js')
+const { MongoClient } = require('mongodb');
 
 require('dotenv').config()
 
@@ -6,9 +7,29 @@ const { checkCalendar } = require('./calendar/checkCalendar.js');
 const { checkDay } = require('./day/checkDay.js')
 const { checkTicket } = require('./ticket/checkTicket.js')
 
+const  { addToCart } = require('./cart/addToCart.js');
+
 const { htmlToMarkdown, formatDate } = require('./format.js')
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS] });
+
+const mongoUri = "mongodb+srv://David:" + process.env.PASSWORD + "@clusterdiscord.uqld2dy.mongodb.net/?retryWrites=true&w=majority&appName=ClusterDiscord"; // Assurez-vous que MONGO_URI est défini dans votre fichier .env
+const DBclient = new MongoClient(mongoUri);
+
+async function connectDb() {
+    try {
+        await DBclient.connect();
+        const database = DBclient.db("ClusterDiscord");
+        const cookies = database.collection("cookies");
+        const sessions = database.collection("sessions");
+        console.log("Connected to MongoDB");
+        return {cookies, sessions};
+    } catch (e) {
+        console.error("Could not connect to MongoDB", e);
+        return  [];
+    }
+}
+
 
 const categoryToRoleMap = {
     'LOG': 'loge',
@@ -40,6 +61,64 @@ client.once('ready', () => {
     setInterval(() => {
         start().catch(console.error);
     }, 60000);
+});
+
+client.on('interactionCreate', async interaction => {
+    if (!interaction.isButton()) return;
+
+    const priceId = interaction.customId.split('_')[1];
+    const userId = interaction.user.id;
+
+    // Appeler l'API pour enregistrer l'ID du produit
+    fetch('http://localhost:3000/api/save-product-id', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            userId,
+            priceId
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('API Response:', data);
+    })
+    .catch(error => {
+        console.error('Failed to save product ID:', error);
+    });
+
+    if (interaction.customId.startsWith('addToCart_')) {
+        try {
+            const {cookies, sessions} = await connectDb();
+            const cartUrl = 'https://tickets.rolandgarros.com/fr/ticket/panier'
+
+            const productId = {
+                quantity: 1,
+                priceId: interaction.customId.split('_')[1],
+                zoneId: null, 
+                isVoucher: false
+            }
+            await addToCart(interaction.user.id, productId, cookies);
+            // Réinitialiser le flag après l'ajout au panier
+            await sessions.updateOne({ userId }, { $unset: { cartIntent: ""} });
+            await interaction.reply({ content: `L'article a été ajouté à votre panier. [Voir le panier](${cartUrl})`, ephemeral: true });
+        } catch (error) {
+            console.error('Erreur lors de l\'ajout au panier:', error);
+            if (error.message === "NotEnoughTickets") {
+                await interaction.reply({
+                    content: "Le billet que vous essayez d'ajouter n'existe plus ou n'est plus en stock",
+                    ephemeral: true
+                })
+            } else {
+                await interaction.reply({
+                    content: "Il semble que votre session ait expiré ou que vos cookies ne soient plus valides. Veuillez vous reconnecter à Roland Garros pour que nous puissions mettre à jour votre session.",
+                    components: [getLoginButton()],
+                    ephemeral: true
+                });
+            }
+        }
+    }
 });
 
 async function start() {
@@ -94,7 +173,6 @@ async function start() {
 
             const embed = new MessageEmbed()
             .setTitle(`Nouveau billet disponible !`)
-            .setURL(generateLinkURL(ticket))
             .setDescription(htmlToMarkdown(ticket.offerDetails))
             .addFields(
                 {name: 'Round', value: ticket.round, inline: true},
@@ -106,17 +184,34 @@ async function start() {
             .setColor(ticket.color) // Utilise une couleur correspondant à ton thème
             .setTimestamp();
                 
-                
-                member.send({ embeds: [embed] }).catch(error => {
+            // Création du bouton
+            const button = new MessageButton()
+                .setCustomId(`addToCart_${ticket.priceId}`) // Identifiant unique pour reconnaître ce bouton lorsqu'il est cliqué
+                .setLabel('Ajouter au Panier') // Texte affiché sur le bouton
+                .setStyle('PRIMARY') // Style du bouton (PRIMARY, SECONDARY, SUCCESS, DANGER, ou LINK)
+
+            // Création d'une ligne d'actions pour ajouter le bouton
+            const row = new MessageActionRow()
+                .addComponents(button);
+
+                member.send({ embeds: [embed], components: [row] }).catch(error => {
                     console.error(`Impossible d'envoyer un DM à ${member.user.tag}.`, error);
                 });
             });
     });
 }
 
-function generateLinkURL(ticket) {
-    const url = `https://tickets.rolandgarros.com/fr/ticket/categorie?date=${ticket.date}&offerId=${ticket.offerId}&sessionIds=${ticket.sessionIds[0]}&sessionTypes=${ticket.sessionType}&court=${ticket.court}&dateDescription=${encodeURIComponent(ticket.dateDescription)}&offerType=${ticket.offerType}`;
-    return url
+function getLoginButton() {
+    const row = new MessageActionRow();
+    const button = new MessageButton()
+        .setLabel('Se connecter à Roland Garros')
+        .setStyle('LINK')
+        .setURL('https://tickets.rolandgarros.com/fr');  // Assurez-vous que l'URL est correcte
+
+    row.addComponents(button);
+    return row;
 }
 
-client.login(process.env.TOKEN_ID);
+module.exports = {
+    client
+}

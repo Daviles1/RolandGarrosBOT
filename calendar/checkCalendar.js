@@ -8,7 +8,13 @@ async function checkCalendar() {
     await getCalendar(); 
 
     let updatedData = JSON.parse(fs.readFileSync('JSON/disponibiliteCalendar.json', 'utf8'));
+
     let changes = [];
+
+    if (isEmptyObject(initialData)) {
+        console.log("L'ancien fichier JSON est vide. Aucune comparaison n'est effectuée.");
+        return;
+    }
 
     updatedData.rounds.forEach((updatedRound) => {
         updatedRound.days.forEach((updatedDay) => {
@@ -35,6 +41,10 @@ async function checkCalendar() {
     }
 
     return changes;
+}
+
+function isEmptyObject(obj) {
+    return Object.keys(obj).length === 0 && obj.constructor === Object;
 }
 
 
