@@ -70,7 +70,7 @@ client.on('interactionCreate', async interaction => {
     const userId = interaction.user.id;
 
     // Appeler l'API pour enregistrer l'ID du produit
-    fetch('http://localhost:3000/api/save-product-id', {
+    fetch('https://rolandgarrosbot-09a83b535625.herokuapp.com/api/save-product-id', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
