@@ -101,9 +101,9 @@ app.post('/api/save-product-id', async (req, res) => {
     }
 });
 
+const port = process.env.PORT || 3000;
 
-
-app.listen(process.env.PORT || 3000, () => {
+app.listen(port, () => {
     console.log('Server running on https://rolandgarrosbot-09a83b535625.herokuapp.com/');
 });
 
