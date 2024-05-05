@@ -13,7 +13,7 @@ async function checkCalendar() {
 
     if (isEmptyObject(initialData)) {
         console.log("L'ancien fichier JSON est vide. Aucune comparaison n'est effectuée.");
-        return;
+        return changes;
     }
 
     updatedData.rounds.forEach((updatedRound) => {

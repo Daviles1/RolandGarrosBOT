@@ -60,7 +60,7 @@ client.once('ready', () => {
     start();
     setInterval(() => {
         start().catch(console.error);
-    }, 60000);
+    }, 50000);
 });
 
 client.on('interactionCreate', async interaction => {

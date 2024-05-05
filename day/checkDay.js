@@ -2,8 +2,14 @@ const fs = require('fs').promises;
 const { getDay } = require('./getDay.js');
 
 async function checkDay(changesCalendar) {
+    if (!changesCalendar || changesCalendar.length === 0) {
+        console.log("Aucun changement à traiter dans checkDay.");
+        return { changesDayFromFalseToTrue: [], changesDayFromTrueToTrue: [] };
+    }
+
     let changesDayFromFalseToTrue = []
     let changesDayFromTrueToTrue = []
+
     for (const change of changesCalendar) {
         if (change.from === false && change.to === true) {
             // Changement de false à true
