@@ -32,6 +32,7 @@ async function addToCart(userId, productId, cookies) {
                     'Cookie': cleanedCookieHeader,
                     'Content-Type': 'application/json',
                     'Origin': 'https://tickets.rolandgarros.com',
+                    'Priority': 'u=1, i',
                     'Sec-Ch-Device-Memory': '8',
                     'Sec-Ch-Ua': '"Microsoft Edge";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
                     'Sec-Ch-Ua-Arch': '"x86"',
@@ -43,7 +44,6 @@ async function addToCart(userId, productId, cookies) {
                     'Sec-Fetch-Mode': 'cors',
                     'Sec-Fetch-Site': 'same-origin',
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0',
-                    'X-Queueit-Ajaxpageurl': 'https%3A%2F%2Ftickets.rolandgarros.com%2Ffr%2Fticket%2Fcategorie%3Fdate%3D2024-06-06%26offerId%3D41%26sessionIds%3D2463%26sessionTypes%3DJOU%26court%3DANN%26dateDescription%3DJeudi%25206%2520Juin%26offerType%3DSINGLE_DAY',
                     }
             });
             console.log('Added to cart:', response.data);
